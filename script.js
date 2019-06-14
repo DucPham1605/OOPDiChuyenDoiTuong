@@ -24,7 +24,6 @@ function Hero(image, top, left, size) {
     }
     this.moveDown = function () {
         this.top += speed;
-        console.log('ok: ' + this.top);
     }
 }
 
