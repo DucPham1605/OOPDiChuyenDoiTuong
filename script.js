@@ -1,10 +1,11 @@
-const speed = 50;
 
-function Hero(image, top, left, size) {
+
+function Hero(image, top, left, size,speed) {
     this.image = image;
     this.top = top;
     this.left = left;
     this.size = size;
+    this.speed = speed;
 
     this.getHeroElement = function () {
         return '<img width="' + this.size + '"' +
@@ -27,7 +28,7 @@ function Hero(image, top, left, size) {
     }
 }
 
-var hero = new Hero('psyduck.png', 20, 30, 250);
+var hero = new Hero('mario.png', 20, 30, 250,50);
 
 function start() {
     if (hero.left < window.innerWidth - hero.size) {
@@ -35,17 +36,17 @@ function start() {
             hero.moveRight();
         }
 
-    }else if (hero.top < window.innerHeight - hero.size) {
+    } else if (hero.top < window.innerHeight - hero.size) {
         hero.moveDown();
     }
     if(hero.top>=window.innerHeight-hero.size&&hero.left>=80) {
         hero.moveLeft();
     }
-    if (hero.left===80 &&hero.top>=70){
+    if (hero.left===80 && hero.top >= 70 ){
         hero.moveTop();
     }
     document.getElementById('game').innerHTML = hero.getHeroElement();
-    setTimeout(start, 10);
+    setTimeout(start, 50);
 }
 
 start();
